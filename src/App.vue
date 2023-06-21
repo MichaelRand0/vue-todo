@@ -1,14 +1,17 @@
 <template>
   <div>
+    <InputMain v-model="searchValue" placeholder="Поиск" />
     <div>
-      <ButtonMain class="max-w-[250px] mb-5 mr-5" @click="this.show = true">Создать пост</ButtonMain>
+      <ButtonMain class="max-w-[250px] mb-5 mr-5" @click="this.show = true"
+        >Создать пост</ButtonMain
+      >
       <SelectMain :options="sortOptions" v-model="selectedSort" />
     </div>
     <ModalMain v-model:show="show">
       <PostForm @create="addPost" />
     </ModalMain>
     <h4 class="text-red-500 font-bold" v-if="isLoading">Идет загрузка постов...</h4>
-    <PostList v-else @remove="removePost" :posts="posts" />
+    <PostList v-else @remove="removePost" :posts="searchedAndSortedPosts" />
   </div>
 </template>
 
@@ -30,24 +33,28 @@ export default {
       show: false,
       isLoading: false,
       selectedSort: '',
+      searchValue: '',
       sortOptions: [
         {
           value: 'title',
-          name: 'По названию'
+          name: 'По названию',
         },
         {
           value: 'body',
-          name: 'По содержимому'
+          name: 'По содержимому',
         },
-      ]
+      ],
     }
   },
-  watch: {
-    selectedSort(val) {
-      this.posts = this.posts.sort((a, b) => {
-        return a[val].localeCompare(b[val])
-      })
-    }
+  computed: {
+    sortedPosts() {
+      return [...this.posts].sort((a, b) =>
+        a[this.selectedSort]?.localeCompare(b[this.selectedSort]),
+      )
+    },
+    searchedAndSortedPosts() {
+      return [...this.sortedPosts].filter((post) => post.title.toLowerCase().includes(this.searchValue.toLowerCase()))
+    },
   },
   async mounted() {
     const posts = await this.getPosts()
