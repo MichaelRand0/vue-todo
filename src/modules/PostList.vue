@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h3 class="mb-5 text-xl font-bold">POSTS</h3>
     <transition-group name="list" v-if="posts.length > 0">
       <PostItem
         class="list-item"
