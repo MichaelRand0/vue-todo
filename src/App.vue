@@ -1,36 +1,15 @@
 <template>
-  <form class="flex flex-wrap w-full max-w-xs mb-10 items-center justify-center text-center">
-    <h3 class="mb-3 font-bold uppercase">Создание поста</h3>
-    <input
-      v-bind:value="title"
-      @input="this.title = $event.target.value"
-      class="mb-5 border rounded-md px-3 py-2 w-full"
-      placeholder="Название"
-      type="text"
-    />
-    <input
-      v-bind:value="body"
-      @input="this.body = $event.target.value"
-      class="mb-5 border rounded-md px-3 py-2 w-full"
-      placeholder="Описание"
-      type="text"
-    />
-    <button class="w-full border border-black rounded-md p-2">Создать пост</button>
-  </form>
-  <div class="mb-3 border-2 border-red-600 p-2 rounded-md" v-for="post in posts">
-    <div>
-      <strong>Название:</strong>
-      <div>{{ post.title }}</div>
-    </div>
-    <div>
-      <strong>Описание:</strong>
-      <div>{{ post.body }}</div>
-    </div>
-  </div>
+  <PostForm @create="addPost" />
+  <PostList @remove="removePost" :posts="posts" />
 </template>
 
 <script>
+import PostForm from './components/PostForm'
+import PostList from './components/PostList'
 export default {
+  components: {
+    PostForm, PostList
+  },
   data() {
     return {
       posts: [
@@ -50,11 +29,15 @@ export default {
           body: 'CSS-Фреймворк',
         },
       ],
-      title: '',
-      body: '',
     }
   },
   methods: {
+    addPost(post) {
+      this.posts.push(post)
+    },
+    removePost(post) {
+      this.posts = this.posts.filter(item => item.id !== post.id)
+    }
   },
 }
 </script>
