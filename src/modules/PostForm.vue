@@ -5,6 +5,7 @@
   >
     <h3 class="mb-3 font-bold uppercase">Создание поста</h3>
     <InputMain
+      v-focus
       v-model="post.title"
       placeholder="Название"
       type="text"
