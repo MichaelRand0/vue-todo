@@ -8,11 +8,12 @@
   </div>
 </template>
 <script>
+
 export default {
   watch: {
     '$store.state.auth.user': function () {
       const user = this.$store.state.auth.user
-      user ? this.$router.push('/') : !user ? this.$router.push('/auth') : ''
+      !user ? this.$router.push('/auth') : ''
     },
     '$store.state.posts.posts': function() {
       localStorage.setItem('posts', JSON.stringify(this.$store.state.posts.posts))
@@ -20,12 +21,10 @@ export default {
   },
   mounted() {
     const posts = JSON?.parse?.(localStorage.getItem('posts')) ?? []
-    console.log('posts', localStorage.getItem('posts'))
     this.$store.commit('setPosts', posts)
     const user = localStorage.getItem('user')
     if (user) {
       this.$store.commit('setUser', user)
-      console.log('user mounted', user)
     } else {
       this.$router.push('/auth')
     }

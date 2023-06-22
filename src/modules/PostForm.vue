@@ -3,7 +3,7 @@
     @submit.prevent
     class="flex flex-wrap w-full max-w-xs mb-10 items-center justify-center text-center"
   >
-    <h3 class="mb-3 font-bold uppercase">Создание поста</h3>
+    <h3 class="mb-3 font-bold uppercase">Создание дела</h3>
     <InputMain
       v-focus
       v-model="post.title"
@@ -15,7 +15,7 @@
       placeholder="Описание"
       type="text"
     />
-    <ButtonMain @click="addPost">Создать пост</ButtonMain>
+    <ButtonMain @click="addPost">Создать дело</ButtonMain>
   </form>
 </template>
 <script>

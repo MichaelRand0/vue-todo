@@ -14,14 +14,24 @@ export default {
   data() {
     return {
       show: true,
-      value: ''
+      value: '',
     }
+  },
+  watch: {
+    '$store.state.auth.user': function () {
+      const user = this.$store.state.auth.user
+      user ? this.$router.push('/') : ''
+    },
+  },
+  mounted() {
+    const user = this.$store.state.auth.user
+    user ? this.$router.push('/') : ''
   },
   methods: {
     login() {
       const users = JSON.parse(localStorage.getItem('users')) ?? []
       const isUserExists = users?.includes(this.value)
-      if(isUserExists) {
+      if (isUserExists) {
         localStorage.setItem('user', this.value)
         this.$store.commit('setUser', this.value)
       } else {
@@ -31,7 +41,7 @@ export default {
     signUp() {
       const users = JSON.parse(localStorage.getItem('users')) ?? []
       const isUserExists = users?.includes(this.value)
-      if(isUserExists) {
+      if (isUserExists) {
         alert('Пользователь уже существует')
       } else {
         localStorage.setItem('users', JSON.stringify([...users, this.value]))
@@ -40,6 +50,6 @@ export default {
         this.value = ''
       }
     },
-  }
+  },
 }
 </script>
