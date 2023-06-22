@@ -1,24 +1,43 @@
-# vue-todo
+<h1>Проект: Vue-Todo</h1>
 
-## Project setup
-```
-yarn install
-```
+<h2>Превью проекта:</h2>
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+https://github.com/MichaelRand0/vue-todo/assets/61416895/2a20119f-2712-4512-b764-3959ed180e04
 
-### Compiles and minifies for production
-```
-yarn build
-```
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<h2>Цели проекта:</h2>
+<ul>
+  <li>Введение в Vue 3 и Vuex</li>
+  <li>Выполнение тестового задания для Quick Deal</li>
+  <li>Пополнение портфолио</li>
+</ul>
+<h2>Основные используемые технологии:</h2>
+<ul>
+  <h3>Frontend:</h3>
+  <li>Vue</li>
+  <li>Vuex</li>
+  <li>Tailwindcss</li>
+</ul>
+<h2>Что реализовано в проекте:</h2>
+<ul>
+  <h3>Frontend:</h3>
+  <li>Менеджер дел на Vue 3</li>
+  <li>Работа со store через Vuex</li>
+  <li>Добавление, удаление и редактирование постов</li>
+  <li>Сортировка по названию и описанию дела</li>
+  <li>Поиск по названию дела</li>
+  <li>Простая авторизация</li>
+  <li>Сохранение данных в local storage</li>
+</ul>
+<h2>Инструкция по запуску проекта:</h2>
+<h3>Быстрый вариант:</h3>
+<ul>
+  <li>1. Перейти по этой ссылке(задеплоенный проект на vercel) - https://vue-todo-phi-jade.vercel.app</li>
+</ul>
+<h3>Долгий вариант:</h3>
+<ul>
+  <li>1. Склонировать проект в любую папку с помощью любого IDE редактора(команда git clone)</li>
+  <li>2. Перейти в папку проекта и через терминал установить модули командой yarn или npm i</li>
+  <li>3. Локально запустить проект: yarn serve или npm run serve</li>
+  <li>5. В браузере перейти на localhost:8080</li>
+</ul>
