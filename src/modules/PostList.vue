@@ -1,8 +1,8 @@
 <template>
-  <div class="overflow-x-hidden">
+  <div class="overflow-x-hidden flex flex-wrap w-full">
     <transition-group name="list" v-if="posts.length > 0">
       <PostItem
-        class="list-item w-full"
+        class="list-item w-[49%]"
         :key="post.id"
         @remove="$emit('remove', post)"
         v-for="post in posts"
