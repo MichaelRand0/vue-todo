@@ -11,15 +11,22 @@
 </template>
 <script>
 export default {
+  name: 'ModalMain',
   props: {
     show: {
       type: Boolean,
       required: true,
     },
+    alwaysShow: {
+      type: Boolean,
+      default: () => false
+    },
   },
   methods: {
     hideModal() {
-      this.$emit('update:show', false)
+      if(!this.alwaysShow) {
+        this.$emit('update:show', false)
+      }
     },
   },
 }

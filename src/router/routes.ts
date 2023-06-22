@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MainPage from '../pages/MainPage.vue'
 import UserPosts from '../pages/UserPosts.vue'
+import AuthPage from '../pages/AuthPage.vue'
 
 const routes = [
   {
@@ -10,6 +11,10 @@ const routes = [
   {
     path: '/posts',
     component: UserPosts,
+  },
+  {
+    path: '/auth',
+    component: AuthPage,
   },
 ]
 

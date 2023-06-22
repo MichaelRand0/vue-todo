@@ -4,6 +4,7 @@ import './index.css'
 import components from './shared'
 import router from './router/routes'
 import directives from './directives'
+import store from './store/store'
 
 const app = createApp(App)
 
@@ -15,4 +16,4 @@ components.forEach((component) => {
   app.component(component.name, component)
 })
 
-app.use(router).mount('#app')
+app.use(store).use(router).mount('#app')

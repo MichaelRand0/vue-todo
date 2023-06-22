@@ -28,14 +28,12 @@
 <script>
 import PostForm from '.././modules/PostForm'
 import PostList from '.././modules/PostList'
-import ModalMain from '.././shared/ModalMain.vue'
 import axios from 'axios'
 
 export default {
   components: {
     PostForm,
     PostList,
-    ModalMain,
   },
   data() {
     return {
